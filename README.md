@@ -4,7 +4,7 @@
  
 Information about this course can be found on the course web-page:
  
-http://www.shahmoradi.org/DSP2019F/
+http://www.cdslab.org/DSP2019F/
 
 For questions about this course, contact:
 
