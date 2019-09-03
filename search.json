@@ -1,6 +1,14 @@
 [
 	
 		{
+		  "title"      : "Homework 1: Version Control Using Git and Github",
+		  "category"   : "",
+		  "url"        : "/DSP2019F/homework/1-version-control-using-git-github",
+		  "date"       : "2019-09-04 00:00:00 -0500",
+		  "shortdate"  : "September 04, 2019"
+		} ,
+	
+		{
 		  "title"      : "Announcement 1: Assessing your programming knowledge and interests",
 		  "category"   : "",
 		  "url"        : "/DSP2019F/announcement/1-assessing-your-knowledge-and-interests",

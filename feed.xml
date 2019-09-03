@@ -7,13 +7,58 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http:/DSP2019F/feed.xml" />
 <link rel="alternate" type="text/html" href="http:/DSP2019F/" />
-<updated>2019-08-24T15:37:24-05:00</updated>
+<updated>2019-09-03T16:17:36-05:00</updated>
 <id>http:/DSP2019F/</id>
 <author>
   <name>Amir Shahmoradi</name>
   <uri>http:/DSP2019F/</uri>
   <email>shahmoradi@utexas.edu</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[Homework 1: Version Control Using Git and Github]]></title>
+  <link rel="alternate" type="text/html" href="http:/DSP2019F/homework/1-version-control-using-git-github"/>
+  <id>http:/DSP2019F/homework/1-version-control-using-git-github</id>
+  <published>2019-09-04T00:00:00-05:00</published>
+  <updated>2019-09-04T00:00:00-05:00</updated>
+  <author>
+    <name>Amir Shahmoradi</name>
+    <uri>http:/DSP2019F</uri>
+    <email>shahmoradi@utexas.edu</email>
+  </author>
+  
+  <content type="html">
+  
+    &lt;p&gt;♣ &lt;strong&gt;Due Date: Wednesday Sep 10, 2019 2:00 PM&lt;/strong&gt;. This homework aims at giving you some experience on how to create Git branches, develop your project on multiple branches, merge them, resolve potential conflicts between different branches upon merging, and finally how to delete them. It also gives you some experience with using other commonly-used Git commands.&lt;/p&gt;
+
+&lt;p&gt;First, use the following Markdown language references, or any other reference that you find or prefer, to design a Github-interpretable README file for each of folders in your project for this course, and a Github web-page for your project.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http:/DSP2019F/lecture/1/markdown-cheatsheet-online.pdf&quot; target=&quot;_blank&quot;&gt;Markdown language cheat-sheet (pdf)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://blog.ghost.org/markdown/&quot; target=&quot;_blank&quot;&gt;Markdown language reference (web)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet&quot; target=&quot;_blank&quot;&gt;Adam Pritchard’s Markdown cheat-sheet (web)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Write your code sections of your answer in Markdown syntax.
+For example,&lt;br /&gt;
+&lt;code&gt;
+    ```bash  &lt;br /&gt;
+    $ git branch -d test  &lt;br /&gt;
+    error: Cannot delete branch 'test' checked out at 'C:/Users/Amir/git/foo'  &lt;br /&gt;
+    ```
+&lt;/code&gt;
+&lt;br /&gt;
+will display the following text highlighted as &lt;em&gt;bash&lt;/em&gt; code, in your &lt;em&gt;readme.md&lt;/em&gt; file (albeit, with different style and color).&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ git branch -d test
+error: Cannot delete branch 'test' checked out at 'C:/Users/Amir/git/foo'
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;1.&lt;/strong&gt; &lt;a href=&quot;https://www.cdslab.org/recipes/programming/version-control-using-git-github/version-control-using-git-github&quot; target=&quot;_blank&quot;&gt;Version-control using Git and GitHub&lt;/a&gt;.&lt;/p&gt;
+
+  
+  &lt;p&gt;&lt;a href=&quot;http:/DSP2019F/homework/1-version-control-using-git-github&quot;&gt;Homework 1: Version Control Using Git and Github&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/DSP2019F&quot;&gt;PHYS 5391 - Fall 2019 - TTH 14:00-13:30 - Life Sciences Building LS 428&lt;/a&gt; on September 04, 2019.&lt;/p&gt;</content>
+</entry>
 
 
 <entry>
