@@ -7,7 +7,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http:/DSP2019F/feed.xml" />
 <link rel="alternate" type="text/html" href="http:/DSP2019F/" />
-<updated>2019-09-03T16:17:36-05:00</updated>
+<updated>2019-09-05T17:24:07-05:00</updated>
 <id>http:/DSP2019F/</id>
 <author>
   <name>Amir Shahmoradi</name>
@@ -30,7 +30,7 @@
   
   <content type="html">
   
-    &lt;p&gt;♣ &lt;strong&gt;Due Date: Wednesday Sep 10, 2019 2:00 PM&lt;/strong&gt;. This homework aims at giving you some experience on how to create Git branches, develop your project on multiple branches, merge them, resolve potential conflicts between different branches upon merging, and finally how to delete them. It also gives you some experience with using other commonly-used Git commands.&lt;/p&gt;
+    &lt;p&gt;♣ &lt;strong&gt;Due Date: Wednesday Sep 12, 2019 2:00 PM&lt;/strong&gt;. This homework aims at giving you some experience on how to create Git branches, develop your project on multiple branches, merge them, resolve potential conflicts between different branches upon merging, and finally how to delete them. It also gives you some experience with using other commonly-used Git commands.&lt;/p&gt;
 
 &lt;p&gt;First, use the following Markdown language references, or any other reference that you find or prefer, to design a Github-interpretable README file for each of folders in your project for this course, and a Github web-page for your project.&lt;/p&gt;
 
