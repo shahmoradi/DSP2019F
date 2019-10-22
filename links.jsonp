@@ -2,6 +2,11 @@
 callback([
 
   {
+    "text": "Quiz 2: Python control constructs and program units",
+    "href": "/DSP2019F/quiz/2-control-constructs-and-program-units"
+  } ,
+
+  {
     "text": "Quiz 1: Version control system, programming history",
     "href": "/DSP2019F/quiz/1-version-control-system-programming-history"
   } ,

@@ -7,13 +7,96 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http:/DSP2019F/feed.xml" />
 <link rel="alternate" type="text/html" href="http:/DSP2019F/" />
-<updated>2019-10-12T01:27:53-05:00</updated>
+<updated>2019-10-22T13:44:09-05:00</updated>
 <id>http:/DSP2019F/</id>
 <author>
   <name>Amir Shahmoradi</name>
   <uri>http:/DSP2019F/</uri>
   <email>shahmoradi@utexas.edu</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[Quiz 2: Python control constructs and program units]]></title>
+  <link rel="alternate" type="text/html" href="http:/DSP2019F/quiz/2-control-constructs-and-program-units"/>
+  <id>http:/DSP2019F/quiz/2-control-constructs-and-program-units</id>
+  <published>2019-10-21T00:00:00-05:00</published>
+  <updated>2019-10-21T00:00:00-05:00</updated>
+  <author>
+    <name>Amir Shahmoradi</name>
+    <uri>http:/DSP2019F</uri>
+    <email>shahmoradi@utexas.edu</email>
+  </author>
+  
+  <content type="html">
+  
+    &lt;p&gt;This quiz aims to testing your basic knowledge of Control constructs and program units in Python.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Suppose you write a Python module, which you would also like to run it as a standalone Python code. If you wanted to make sure that some specific Python statements are executed only when the code is run a Python code (and not a module), you may recall from the lecture, that we had to use and if block like the following,
+    &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;if __name__ == &quot;__main__&quot;:
+    &amp;lt;Python statements&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;p&gt;Briefly explain what this if block does and mean.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Suppose you write a module named &lt;code&gt;myModule&lt;/code&gt;, which contains the function &lt;code&gt;myfunc&lt;/code&gt;. Now you import this module to another code.&lt;br /&gt;
+(A) Write down the import statement that would enable you to use &lt;code&gt;myfunc&lt;/code&gt; with name &lt;code&gt;f&lt;/code&gt; instead.&lt;br /&gt;
+(B) What would be the output of the following Python print statement,
+    &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import myModule as mm
+print(mm.__name__)
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Suppose there are two lists of numbers,
+    &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;even = [0,2,4,6,8]
+odd = [1,3,5,7,9]
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;p&gt;Write a &lt;strong&gt;one-line&lt;/strong&gt; Python statement (list comprehension) that gives a list &lt;code&gt;summ&lt;/code&gt; whose elements are the sum of the respective elements in the above two lists &lt;code&gt;odd&lt;/code&gt; and &lt;code&gt;even&lt;/code&gt;, that is,&lt;/p&gt;
+    &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;summ
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;pre&gt;&lt;code&gt;[1, 5, 9, 13, 17]
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;p&gt;(Hint: You can use &lt;code&gt;zip&lt;/code&gt; function inside a list comprehension. There is also a more efficient way of achieving the goal, without list comprehension. Any guess?)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Consider the following for-loop,
+    &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;mylist = list(range(0,10,2))
+for item in mylist:
+    mylist.append(item+1)
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;p&gt;How many iterations does this for-loop perform before ending? Explain briefly why.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Write a recursive function named &lt;code&gt;getSum&lt;/code&gt; or &lt;code&gt;get_sum&lt;/code&gt; that takes an input integer and gives as the output, the sum of all positive integers up to and including the input integer, for example,
+    &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;getSum(-1)
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;pre&gt;&lt;code&gt;0
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;getSum(0)
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;pre&gt;&lt;code&gt;0
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;getSum(1)
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;pre&gt;&lt;code&gt;1
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;getSum(2)
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;pre&gt;&lt;code&gt;3
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;getSum(3)
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;pre&gt;&lt;code&gt;6
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+
+  
+  &lt;p&gt;&lt;a href=&quot;http:/DSP2019F/quiz/2-control-constructs-and-program-units&quot;&gt;Quiz 2: Python control constructs and program units&lt;/a&gt; was originally published by Amir Shahmoradi at &lt;a href=&quot;http:/DSP2019F&quot;&gt;PHYS 5391 - Fall 2019 - TTH 14:00-13:30 - Life Sciences Building LS 428&lt;/a&gt; on October 21, 2019.&lt;/p&gt;</content>
+</entry>
 
 
 <entry>

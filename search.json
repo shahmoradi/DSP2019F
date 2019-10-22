@@ -1,6 +1,14 @@
 [
 	
 		{
+		  "title"      : "Quiz 2: Python control constructs and program units",
+		  "category"   : "",
+		  "url"        : "/DSP2019F/quiz/2-control-constructs-and-program-units",
+		  "date"       : "2019-10-21 00:00:00 -0500",
+		  "shortdate"  : "October 21, 2019"
+		} ,
+	
+		{
 		  "title"      : "Homework 2: Python programming",
 		  "category"   : "",
 		  "url"        : "/DSP2019F/homework/2-python-programming",
