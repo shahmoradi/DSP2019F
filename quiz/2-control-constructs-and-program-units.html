@@ -154,29 +154,12 @@ MathJax.Hub.Queue(function() {
     &lt;Python statements&gt;
 </code></pre>
     <p>Briefly explain what this if block does and mean.</p>
-
-    <p><strong>Answer:</strong><br />
-Each Python module has an attribute <code>__name__</code>. When the code is used as a Python module, the <code>__name__</code> is set to the name of the module, otherwise it is set to <code>__main__</code>. Therefore, this if block makes sure that the code is running as a standalone code or not.</p>
   </li>
   <li>Suppose you write a module named <code>myModule</code>, which contains the function <code>myfunc</code>. Now you import this module to another code.<br />
 (A) Write down the import statement that would enable you to use <code>myfunc</code> with name <code>f</code> instead.<br />
 (B) What would be the output of the following Python print statement,
     <pre><code class="language-python">import myModule as mm
 print(mm.__name__)
-</code></pre>
-
-    <p><strong>Answer:</strong><br />
-(A)</p>
-    <pre><code class="language-python">from math import sqrt as f
-f(4.0)
-</code></pre>
-    <pre><code>2.0
-</code></pre>
-    <p>(B)</p>
-    <pre><code class="language-python">import math as m
-print(m.__name__)
-</code></pre>
-    <pre><code>math
 </code></pre>
   </li>
   <li>Suppose there are two lists of numbers,
@@ -189,15 +172,6 @@ odd = [1,3,5,7,9]
     <pre><code>[1, 5, 9, 13, 17]
 </code></pre>
     <p>(Hint: You can use <code>zip</code> function inside a list comprehension. There is also a more efficient way of achieving the goal, without list comprehension. Any guess?)</p>
-
-    <p><strong>Answer:</strong></p>
-    <pre><code class="language-python">even = [0,2,4,6,8]
-odd = [1,3,5,7,9]
-summ = [i+j for i,j in zip(odd,even)]
-summ
-</code></pre>
-    <pre><code>[1, 5, 9, 13, 17]
-</code></pre>
   </li>
   <li>Consider the following for-loop,
     <pre><code class="language-python">mylist = list(range(0,10,2))
@@ -205,54 +179,6 @@ for item in mylist:
     mylist.append(item+1)
 </code></pre>
     <p>How many iterations does this for-loop perform before ending? Explain briefly why.</p>
-
-    <p><strong>Answer:</strong><br />
-This for-loop never ends! Because at each iteration, a new element is added to the end of the list. You can check if this is indeed the case by adding a print statement inside the loop,</p>
-    <pre><code class="language-python">mylist = list(range(0,10,2))
-for item in mylist:
-    mylist.append(item+1)
-    print(item)
-</code></pre>
-    <pre><code>0
-2
-4
-6
-8
-1
-3
-5
-7
-9
-2
-4
-6
-8
-10
-3
-5
-7
-9
-11
-4
-6
-8
-10
-12
-5
-7
-9
-11
-13
-6
-8
-10
-12
-14
-7
-9
-11
-</code></pre>
-    <p>and the loop keeps printing forever!</p>
   </li>
   <li>Write a recursive function named <code>getSum</code> or <code>get_sum</code> that takes an input integer and gives as the output, the sum of all positive integers up to and including the input integer, for example,
     <pre><code class="language-python">getSum(-1)
@@ -274,14 +200,6 @@ for item in mylist:
     <pre><code class="language-python">getSum(3)
 </code></pre>
     <pre><code>6
-</code></pre>
-
-    <p><strong>Answer:</strong></p>
-    <pre><code class="language-python">def getSum(n):
-    if n&gt;0:
-        return n + getSum(n-1)
-    else:
-        return 0
 </code></pre>
   </li>
 </ol>
@@ -352,8 +270,8 @@ for item in mylist:
 
     <footer class="notepad-site-footer">
     <div class="copyright">
-         <!-- <section>Last updated 2019 / 10 / 22</section></br> -->
-         <section>Last updated Tuesday, 22 Oct 2019 at 02:32 PM CST</section></br>
+         <!-- <section>Last updated 2019 / 10 / 24</section></br> -->
+         <section>Last updated Thursday, 24 Oct 2019 at 11:48 PM CST</section></br>
          <section>All content exclusively maintained by <a href=https://www.shahmoradi.org target="_blank">Amir Shahmoradi</a> <!-- &copy;--> </section></br>
          <section><a class="icon-ghost" href="https://www.uta.edu/physics/" target="_blank">Department of Physics | Data Science Program</a></section></br>
          <section><a class="icon-ghost" href="https://www.uta.edu/" target="_blank">The University of Texas at Arlington</a></section></br>
