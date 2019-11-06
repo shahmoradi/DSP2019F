@@ -7,7 +7,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http:/DSP2019F/feed.xml" />
 <link rel="alternate" type="text/html" href="http:/DSP2019F/" />
-<updated>2019-11-06T00:04:42-06:00</updated>
+<updated>2019-11-06T00:09:38-06:00</updated>
 <id>http:/DSP2019F/</id>
 <author>
   <name>Amir Shahmoradi</name>
@@ -182,13 +182,13 @@ We can multiply the value of $\log\mathcal{L}(\mathcal{D}|\lambda,c,\sigma)$ by 
 
 &lt;p&gt;An easier way to see if the single ellipse is a good fit to our points is to compute the area of the single ellipse, then move on to assume that our data came from &lt;strong&gt;two ellipses&lt;/strong&gt; instead of a single ellipse. At this point, we can use the K-means clustering method to find the two clusters from which these points could have been drawn.&lt;/p&gt;
 
-&lt;p&gt;Now, here is the critical step: We compute the sum of the areas enclosed by these two ellipses (which could overlap each other, but that is fine, we behave as if they were not overlapping). Then we can compare this sum with the area of the original single ellipse. If the area of the single ellipse is smaller than the sum of the areas of the two child-ellipses, we assume that all of the points in our dataset came from the single ellipse, and stop further searches for more potential clusters in our dataset.&lt;/p&gt;
+&lt;p&gt;Now, here is the critical step: We compute the sum of the areas enclosed by these two ellipses (which could overlap, but that is fine, we behave as if they were not overlapping). Then we can compare this sum with the area of the original single ellipse. If the area of the single ellipse is smaller than the sum of the areas of the two child-ellipses, we assume that all of the points in our dataset came from the single ellipse, and stop further searches for potentially more clusters in our dataset.&lt;/p&gt;
 
 &lt;p&gt;However, if the area of the single ellipse is larger than the sum of the areas of the two child ellipses, then we know that the two smaller ellipses are likely better fit to our dataset than a single ellipse. Therefore, our dataset was likely generated from two-ellipses.&lt;/p&gt;
 
-&lt;p&gt;But what if there are more than two ellipses responsible for the generation of the points? One way to test this hypothesis is to repeat the above procedure for the two child-ellipses and see if each one of them can be replaced with two sub-child ellipses instead. This procedure can be then repeated for as many times as needed, until the algorithm stops, implying that all of the child ellipses have been found.&lt;/p&gt;
+&lt;p&gt;But what if there are more than two ellipses responsible for the generation of the points? One way to test this hypothesis is to repeat the above procedure for the two child-ellipses and see whether any one of them can be replaced with two sub-child ellipses instead. This procedure can be then repeated for as many times as needed, until the algorithm stops, implying that all of the child ellipses have been found.&lt;/p&gt;
 
-&lt;p&gt;Write an algorithm based on the above description that can classify all points in a given dataset to an automatically-determined number of ellipses, such that each point in the dataset is enclosed by at least one ellipse. The above graph shows an example of a set of such ellipses illustrated by the green dots. Note that these ellipses are not unique, meaning that different runs of the algorithm could potentially different sets of best-fit ellipses. However, we can hope that each set of ellipses that are found by the algorithm is a good approximation to the original ellipses from which the points were drawn.&lt;/p&gt;
+&lt;p&gt;Write an algorithm based on the above description that can classify all points in a given dataset into an automatically-determined number of ellipses, such that each point in the dataset is enclosed by at least one ellipse. The above graph shows an example of a set of such ellipses illustrated by the green dots. Note that these ellipses are not unique, meaning that different runs of the algorithm could potentially yield different sets of best-fit ellipses. However, we can hope that each set of such ellipses found by the algorithm is a good approximation to the original ellipses from which the points were drawn.&lt;/p&gt;
 
 &lt;p&gt;Here is an animation of this algorithm at work, for a set of points with an evolving overall-shape over time,&lt;/p&gt;
 
