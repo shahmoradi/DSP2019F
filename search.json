@@ -1,6 +1,14 @@
 [
 	
 		{
+		  "title"      : "Final exam: semester project",
+		  "category"   : "",
+		  "url"        : "/DSP2019F/exam/1-semester-project",
+		  "date"       : "2019-11-01 00:00:00 -0500",
+		  "shortdate"  : "November 01, 2019"
+		} ,
+	
+		{
 		  "title"      : "Homework 3: More on Python programming, Monte Carlo methods, and regression",
 		  "category"   : "",
 		  "url"        : "/DSP2019F/homework/3-more-on-python-programming-data-science",

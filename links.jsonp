@@ -27,6 +27,11 @@ callback([
   } ,
 
   {
+    "text": "Final exam: semester project",
+    "href": "/DSP2019F/exam/1-semester-project"
+  } ,
+
+  {
     "text": "Announcement 1: Assessing your programming knowledge and interests",
     "href": "/DSP2019F/announcement/1-assessing-your-knowledge-and-interests"
   } ,
