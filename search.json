@@ -1,6 +1,14 @@
 [
 	
 		{
+		  "title"      : "Homework 3: More on Python programming, Monte Carlo methods, and regression",
+		  "category"   : "",
+		  "url"        : "/DSP2019F/homework/3-more-on-python-programming-data-science",
+		  "date"       : "2019-10-31 00:00:00 -0500",
+		  "shortdate"  : "October 31, 2019"
+		} ,
+	
+		{
 		  "title"      : "Quiz 2: Python control constructs and program units",
 		  "category"   : "",
 		  "url"        : "/DSP2019F/quiz/2-control-constructs-and-program-units",
