@@ -17,6 +17,11 @@ callback([
   } ,
 
   {
+    "text": "Homework 3: Clustering techniques",
+    "href": "/DSP2019F/homework/4-clustering"
+  } ,
+
+  {
     "text": "Homework 2: Python programming",
     "href": "/DSP2019F/homework/2-python-programming"
   } ,

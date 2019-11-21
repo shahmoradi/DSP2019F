@@ -1,6 +1,14 @@
 [
 	
 		{
+		  "title"      : "Homework 3: Clustering techniques",
+		  "category"   : "",
+		  "url"        : "/DSP2019F/homework/4-clustering",
+		  "date"       : "2019-11-21 00:00:00 -0600",
+		  "shortdate"  : "November 21, 2019"
+		} ,
+	
+		{
 		  "title"      : "Final exam: semester project",
 		  "category"   : "",
 		  "url"        : "/DSP2019F/exam/1-semester-project",
