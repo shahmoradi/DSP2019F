@@ -33,14 +33,6 @@
 		} ,
 	
 		{
-		  "title"      : "Homework 2: Python programming",
-		  "category"   : "",
-		  "url"        : "/DSP2019F/homework/2-python-programming",
-		  "date"       : "2019-10-01 00:00:00 -0500",
-		  "shortdate"  : "October 01, 2019"
-		} ,
-	
-		{
 		  "title"      : "Quiz 1: Version control system, programming history",
 		  "category"   : "",
 		  "url"        : "/DSP2019F/quiz/1-version-control-system-programming-history",
