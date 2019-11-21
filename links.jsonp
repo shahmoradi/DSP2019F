@@ -12,13 +12,13 @@ callback([
   } ,
 
   {
-    "text": "Homework 3: More on Python programming, Monte Carlo methods, and regression",
-    "href": "/DSP2019F/homework/3-more-on-python-programming-data-science"
+    "text": "Homework 4: Clustering techniques",
+    "href": "/DSP2019F/homework/4-clustering"
   } ,
 
   {
-    "text": "Homework 3: Clustering techniques",
-    "href": "/DSP2019F/homework/4-clustering"
+    "text": "Homework 3: More on Python programming, Monte Carlo methods, and regression",
+    "href": "/DSP2019F/homework/3-more-on-python-programming-data-science"
   } ,
 
   {
