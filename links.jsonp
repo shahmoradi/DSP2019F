@@ -2,11 +2,6 @@
 callback([
 
   {
-    "text": "Quiz 3: Monte Carlo Integration",
-    "href": "/DSP2019F/quiz/3-monte-carlo"
-  } ,
-
-  {
     "text": "Quiz 2: Python control constructs and program units",
     "href": "/DSP2019F/quiz/2-control-constructs-and-program-units"
   } ,
@@ -19,6 +14,11 @@ callback([
   {
     "text": "Homework 3: More on Python programming, Monte Carlo methods, and regression",
     "href": "/DSP2019F/homework/3-more-on-python-programming-data-science"
+  } ,
+
+  {
+    "text": "Homework 2: Python programming",
+    "href": "/DSP2019F/homework/2-python-programming"
   } ,
 
   {
