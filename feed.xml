@@ -7,7 +7,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http:/DSP2019F/feed.xml" />
 <link rel="alternate" type="text/html" href="http:/DSP2019F/" />
-<updated>2019-12-03T18:09:37-06:00</updated>
+<updated>2019-12-03T18:13:33-06:00</updated>
 <id>http:/DSP2019F/</id>
 <author>
   <name>Amir Shahmoradi</name>
@@ -141,9 +141,13 @@
 &lt;/figure&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;obtaining-the-error-in-tumor-cell-count-optional&quot;&gt;Obtaining the error in tumor cell count (optional)&lt;/h3&gt;
+&lt;h3 id=&quot;obtaining-the-error-in-tumor-cell-count&quot;&gt;Obtaining the error in tumor cell count&lt;/h3&gt;
 
-&lt;p&gt;&lt;strong&gt;3. &lt;/strong&gt; Our assumption here is that the uncertainty in the total number of tumor cells at each time point is given by the number of tumor cells at the boundary of the tumor. Therefore, you will have to write a Python code that identifies the boundary of the tumor at each time point and then sums over the count cells in all boundary points and uses that as the error in the number of tumor cell counts. For the illustration of the error bars, you will need Python functions such as &lt;code&gt;pyplot.errorbar()&lt;/code&gt; of &lt;code&gt;matplotlib&lt;/code&gt; module. In the end, you should get and save a figure in your project’s figure folder like the following figure,&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;3. &lt;/strong&gt; Our assumption here is that the uncertainty in the total number of tumor cells at each time point is given by the number of tumor cells at the boundary of the tumor. Therefore,&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;(This part is optional extra credit) you will have to write a Python code that identifies the boundary of the tumor at each time point and then sums over the count cells in all boundary points and uses that as the error in the number of tumor cell counts.&lt;/li&gt;
+  &lt;li&gt;If you did not solve the above optional part, then assume that the uncertainty in the cound of tumor cells at any given point in time is just $5%$ of the total count of tumor cells. For the illustration of the error bars, you will need Python functions such as &lt;code&gt;pyplot.errorbar()&lt;/code&gt; of &lt;code&gt;matplotlib&lt;/code&gt; module. In the end, you should get and save a figure in your project’s figure folder like the following figure,&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;figure&gt;
     &lt;img src=&quot;http:/DSP2019F/exam/1-problem/figures/growthCurve.png&quot; width=&quot;900&quot; /&gt;
