@@ -203,7 +203,7 @@ MathJax.Hub.Queue(function() {
 
 <h3 id="obtaining-the-error-in-tumor-cell-count-optional">Obtaining the error in tumor cell count (optional)</h3>
 
-<p><strong>3. </strong> Our assumption here is that the uncertainty in the total number of tumor cells at each time point is given by the number of tumor cells at the boundary of the tumor. Therefore, you will have to write a Python code that identifies the boundary of the tumor at each time point and then sums over the count cells in all boundary points and uses that as the error in the number of tumor cell counts. For this part, you will need Python functions such as <code>bwboundaries()</code> and <code>errorbar()</code>. In the end, you should get and save a figure in your project’s figure folder like the following figure,</p>
+<p><strong>3. </strong> Our assumption here is that the uncertainty in the total number of tumor cells at each time point is given by the number of tumor cells at the boundary of the tumor. Therefore, you will have to write a Python code that identifies the boundary of the tumor at each time point and then sums over the count cells in all boundary points and uses that as the error in the number of tumor cell counts. For the illustration of the error bars, you will need Python functions such as <code>pyplot.errorbar()</code> of <code>matplotlib</code> module. In the end, you should get and save a figure in your project’s figure folder like the following figure,</p>
 
 <figure>
     <img src="/DSP2019F/exam/1-problem/figures/growthCurve.png" width="900" />
@@ -376,7 +376,7 @@ We can multiply the value of $\log\mathcal{L}(\mathcal{D}|\lambda,c,\sigma)$ by 
     <footer class="notepad-site-footer">
     <div class="copyright">
          <!-- <section>Last updated 2019 / 12 / 03</section></br> -->
-         <section>Last updated Tuesday, 03 Dec 2019 at 06:04 PM CST</section></br>
+         <section>Last updated Tuesday, 03 Dec 2019 at 06:09 PM CST</section></br>
          <section>All content exclusively maintained by <a href=https://www.shahmoradi.org target="_blank">Amir Shahmoradi</a> <!-- &copy;--> </section></br>
          <section><a class="icon-ghost" href="https://www.uta.edu/physics/" target="_blank">Department of Physics | Data Science Program</a></section></br>
          <section><a class="icon-ghost" href="https://www.uta.edu/" target="_blank">The University of Texas at Arlington</a></section></br>

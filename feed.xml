@@ -7,7 +7,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http:/DSP2019F/feed.xml" />
 <link rel="alternate" type="text/html" href="http:/DSP2019F/" />
-<updated>2019-12-03T18:04:03-06:00</updated>
+<updated>2019-12-03T18:09:37-06:00</updated>
 <id>http:/DSP2019F/</id>
 <author>
   <name>Amir Shahmoradi</name>
@@ -143,7 +143,7 @@
 
 &lt;h3 id=&quot;obtaining-the-error-in-tumor-cell-count-optional&quot;&gt;Obtaining the error in tumor cell count (optional)&lt;/h3&gt;
 
-&lt;p&gt;&lt;strong&gt;3. &lt;/strong&gt; Our assumption here is that the uncertainty in the total number of tumor cells at each time point is given by the number of tumor cells at the boundary of the tumor. Therefore, you will have to write a Python code that identifies the boundary of the tumor at each time point and then sums over the count cells in all boundary points and uses that as the error in the number of tumor cell counts. For this part, you will need Python functions such as &lt;code&gt;bwboundaries()&lt;/code&gt; and &lt;code&gt;errorbar()&lt;/code&gt;. In the end, you should get and save a figure in your project’s figure folder like the following figure,&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;3. &lt;/strong&gt; Our assumption here is that the uncertainty in the total number of tumor cells at each time point is given by the number of tumor cells at the boundary of the tumor. Therefore, you will have to write a Python code that identifies the boundary of the tumor at each time point and then sums over the count cells in all boundary points and uses that as the error in the number of tumor cell counts. For the illustration of the error bars, you will need Python functions such as &lt;code&gt;pyplot.errorbar()&lt;/code&gt; of &lt;code&gt;matplotlib&lt;/code&gt; module. In the end, you should get and save a figure in your project’s figure folder like the following figure,&lt;/p&gt;
 
 &lt;figure&gt;
     &lt;img src=&quot;http:/DSP2019F/exam/1-problem/figures/growthCurve.png&quot; width=&quot;900&quot; /&gt;
