@@ -265,13 +265,13 @@ MathJax.Hub.Queue(function() {
 <p><br /></p>
 
 <p><strong>5. </strong>
-Now the goal is to use an optimization algorithm in Python, such as <code>fminsearch()</code>, to find the most likely set of the parameters of the model $\lambda,c,\sigma$ that give the highest likelihood of obtaining the available data, which is given by the number $\log\mathcal{L}(\mathcal{D}|\lambda,c,\sigma)$ from the above equation. So we want to find the set of parameters for which this number given by the above equation is maximized. You can also use any Python optimization function or method that you wish, to obtain the best parameters.</p>
+Now the goal is to use an optimization algorithm in Python, such as <code>fmin()</code> of <code>scipy</code> package, to find the most likely set of the parameters of the model $\lambda,c,\sigma$ that give the highest likelihood of obtaining the available data, which is given by the number $\log\mathcal{L}(\mathcal{D}|\lambda,c,\sigma)$ from the above equation. So we want to find the set of parameters for which this number given by the above equation is maximized. You can also use any Python optimization function or method that you wish, to obtain the best parameters.</p>
 
-<p>However, if you use <code>fminsearch()</code>, then note that this function finds the minimum of an input function, not the maximum. What we want is to find the maximum of $\log\mathcal{L}(\mathcal{D}|\lambda,c,\sigma)$.
+<p>However, if you use <code>fmin()</code> of <code>scipy</code> package, then note that this function finds the minimum of an input function, not the maximum. What we want is to find the maximum of $\log\mathcal{L}(\mathcal{D}|\lambda,c,\sigma)$.
 What is the solution then? Very simple.
 We can multiply the value of $\log\mathcal{L}(\mathcal{D}|\lambda,c,\sigma)$ by a negative sign so that the maximum value is converted to a minimum. But, note that the position (the set of parameter values) at which this minimum occurs, will remain the same as the maximum position for $\log\mathcal{L}(\mathcal{D}|\lambda,c,\sigma)$.</p>
 
-<p>So, now rewrite your likelihood function above by multiplying its final result (which is just number) by a negative sign. Then you pass this modified function to <code>fminsearch()</code> and you find the optimal parameters. Note that <code>fminsearch()</code> takes as input also a set of initial staring parameter values to initiate the search for the optimal parameters. You can use $(\lambda,c,\sigma) = [10,0.1,1]$ as your starting point given to <code>fminsearch()</code> to search for the optimal values of the parameters.</p>
+<p>So, now rewrite your likelihood function above by multiplying its final result (which is just number) by a negative sign. Then you pass this modified function to <code>fmin()</code> of <code>scipy</code> package and you find the optimal parameters. Note that <code>fmin()</code> of <code>scipy</code> package takes as input also a set of initial staring parameter values to initiate the search for the optimal parameters. You can use $(\lambda,c,\sigma) = [10,0.1,1]$ as your starting point given to <code>fmin()</code> of <code>scipy</code> package to search for the optimal values of the parameters.</p>
 
 <p>Then redraw the above tumor evolution curve and show the result from the model prediction as well, like the following,</p>
 
@@ -293,26 +293,219 @@ We can multiply the value of $\log\mathcal{L}(\mathcal{D}|\lambda,c,\sigma)$ by 
 </figure>
 <p><br /></p>
 
-<p>The red points on this plot delineate the borders of the three ellipses from which these points have been drawn. Suppose, we did not a priori what these ellipses were, and we wanted to <strong>guess them</strong> to the best of our knowledge using Machine Learning methods, in particular, clustering techniques. However, the problem here is slightly complex: We don’t know a priori how many clusters may exist in our data set. Many clustering techniques have been developed over the past decades to automatically answer the question of how many clusters exist in a dataset and where and which objects belong to what clusters.</p>
+<p>The red points on this plot delineate the borders of the three ellipsoids from which these points have been drawn. Suppose, we did not have any a priori knowledge of these ellipsoids and we wanted to <strong>guess them</strong> to the best of our knowledge using Machine Learning methods, in particular, clustering techniques.</p>
 
-<p>Here, we want to focus on a very special approach. To guess the original ellipses from which these points were drawn, we can start with a very simple assumption: suppose all points came from one single ellipse. We can build this hypothetical ellipse by constructing the covariance matrix of the set of points in the dataset and then scale it properly such that the ellipse covers all the points in our dataset.</p>
+<p>The problem here, however, is slightly complex than the above supposition: We may not even know, a priori, how many clusters exist in our data set. Many clustering techniques have been developed over the past decades to automatically answer the question of how many clusters exist in a dataset and where and which objects belong to what clusters.</p>
 
-<p>But here is the second question: Does this single ellipse accurately describe the original ellipse(s) from which the points were drawn? One way to ensure this is the case is to check and see if the points are uniformly distributed inside our single ellipse. But this turns out to be a very challenging task.</p>
+<p>Here, we want to focus on a very special approach. To predict the original ellipsoids from which these points are drawn, we can start with a very simple assumption: suppose all points came from one single ellipsoid. We can build this hypothetical ellipsoid by constructing the covariance matrix of the set of points in the dataset and then scale it properly such that the ellipsoid covers all the points in our dataset. Here is a procedure to this in Python,</p>
 
-<p>An easier way to see if the single ellipse is a good fit to our points is to compute the area of the single ellipse, then move on to assume that our data came from <strong>two ellipses</strong> instead of a single ellipse. At this point, we can use the K-means clustering method to find the two clusters from which these points could have been drawn.</p>
+<p>First, we read the data set and visualize it,</p>
 
-<p>Now, here is the critical step: We compute the sum of the areas enclosed by these two ellipses (which could overlap, but that is fine, we behave as if they were not overlapping). Then we can compare this sum with the area of the original single ellipse. If the area of the single ellipse is smaller than the sum of the areas of the two child-ellipses, we assume that all of the points in our dataset came from the single ellipse, and stop further searches for potentially more clusters in our dataset.</p>
+<pre><code class="language-python">%matplotlib notebook
+import matplotlib.pyplot as plt
+import pandas as pd
+import numpy as np
 
-<p>However, if the area of the single ellipse is larger than the sum of the areas of the two child ellipses, then we know that the two smaller ellipses are likely better fit to our dataset than a single ellipse. Therefore, our dataset was likely generated from two-ellipses.</p>
+# read data
+Data = pd.read_csv("points.txt")
+Point = np.array([Data.x,Data.y])
 
-<p>But what if there are more than two ellipses responsible for the generation of the points? One way to test this hypothesis is to repeat the above procedure for the two child-ellipses and see whether any one of them can be replaced with two sub-child ellipses instead. This procedure can be then repeated for as many times as needed, until the algorithm stops, implying that all of the child ellipses have been found.</p>
+fig = plt.figure( figsize=(4.5, 4) \
+                , dpi= 100 \
+                , facecolor='w' \
+                , edgecolor='w' \
+                ) # create figure object
+ax = fig.add_subplot(1,1,1) # Get the axes instance
 
-<p>Write an algorithm based on the above description that can classify all points in a given dataset into an automatically-determined number of ellipses, such that each point in the dataset is enclosed by at least one ellipse. The above graph shows an example of a set of such ellipses illustrated by the green dots. Note that these ellipses are not unique, meaning that different runs of the algorithm could potentially yield different sets of best-fit ellipses. However, we can hope that each set of such ellipses found by the algorithm is a good approximation to the original ellipses from which the points were drawn.</p>
+ax.plot( Point[0,:] \
+       , Point[1,:] \
+       , 'r.' \
+       , markersize = 1 \
+       ) # plot with color red, as line
+
+ax.set_xlabel('X')
+ax.set_ylabel('Y')
+fig.savefig('points.png', dpi=200) # save the figure to an external file
+plt.show() # display the figure
+</code></pre>
+
+<p>This will display the following figure,</p>
+
+<figure>
+    <img src="/DSP2019F/exam/2-problem/points.png" width="900" />
+</figure>
+<p><br /></p>
+
+<p>Now, here is a script that computes the covariance matrix of a given sample of points (here, our dataset),</p>
+
+<pre><code class="language-python">def getMinVolPartition(Point):
+    import numpy as np
+    npoint = len(Point[0,:])
+    ndim = len(Point[:,0])
+    ncMax = npoint // (ndim + 1) # max number of clusters possible
+    BoundingEllipsoidCenter = np.array([np.mean(Point[0,:]),np.mean(Point[1,:])])
+    SampleCovMat = np.mat(np.cov(Point))
+    SampleInvCovMat = np.mat(np.linalg.inv(SampleCovMat))
+    PointNormed = np.mat(np.zeros((ndim,npoint)))
+    for idim in range(ndim):
+        PointNormed[idim,:] = Point[idim] - BoundingEllipsoidCenter[idim]
+    MahalSq = PointNormed.T * SampleInvCovMat * PointNormed
+    maxMahalSq = np.max(MahalSq)
+    BoundingEllipsoidVolume = np.linalg.det(SampleCovMat) * maxMahalSq**ndim
+    BoundingEllipsoidCovMat = SampleCovMat * maxMahalSq
+    print(
+    """
+    nd = {}
+    np = {}
+    ncMax = {}
+    SampleCovMat = {}
+    InvCovMat = {}
+    max(MahalSq) = {}
+    BoundingEllipsoidCenter = {}
+    BoundingEllipsoidCovMat = {}
+    BoundingEllipsoidVolume = {}
+    """.format( ndim
+              , npoint
+              , ncMax
+              , SampleCovMat[:]
+              , SampleInvCovMat
+              , maxMahalSq
+              , BoundingEllipsoidCenter
+              , BoundingEllipsoidCovMat
+              , BoundingEllipsoidVolume
+              ))
+    return BoundingEllipsoidCenter, BoundingEllipsoidCovMat
+</code></pre>
+
+<p>Calling this function would give an output like the following,</p>
+
+<pre><code class="language-python">getMinVolPartition(Point)
+</code></pre>
+<pre><code>    nd = 2
+    np = 1000
+    ncMax = 333
+    SampleCovMat = [[1.0761723  0.36394188]
+ [0.36394188 0.71635847]]
+    InvCovMat = [[ 1.12198982 -0.5700206 ]
+ [-0.5700206   1.68554491]]
+    max(MahalSq) = 14.185346024371276
+    BoundingEllipsoidCenter = [6.44826263 6.14296536]
+    BoundingEllipsoidCovMat = [[15.26587652  5.16264153]
+ [ 5.16264153 10.16179275]]
+    BoundingEllipsoidVolume = 128.47580579408614
+
+(array([6.44826263, 6.14296536]), matrix([[15.26587652,  5.16264153],
+         [ 5.16264153, 10.16179275]]))
+</code></pre>
+
+<p>where, the variable <code>BoundingEllipsoidCenter</code> is a vector of lebght two, representing the center of the bounding ellipsoid of these points, the variable <code>BoundingEllipsoidCovMat</code> represents the 2-by-2 covariance matrix of this bounding ellipsoid, and the variable <code>BoundingEllipsoidVolume</code> is the determinant of this bounding ellipsoid, essentially representing the volume encosed by it.</p>
+
+<p>To visualize this bounding ellipsoid, we can use the following code,</p>
+
+<pre><code class="language-python">def getRandMVU(numRandMVU,MeanVec,CovMat,isInside=True):
+    """
+    generates numRandMVU uniformly-distributed random points from 
+    inside an ndim-dimensional ellipsoid with Covariance Matrix CovMat, 
+    centered at MeanVec[0:ndim].
+    Output:
+        Numpy matrix of shape numRandMVU by ndim
+    """
+    import numpy as np
+    ndim = len(MeanVec)
+    AvgStdMVN = np.zeros(ndim)
+    CovStdMVN = np.eye(ndim)
+    RandStdMVN = np.random.multivariate_normal(AvgStdMVN,CovStdMVN,numRandMVU)
+    DistanceSq = np.sum(RandStdMVN**2, axis=1)
+    #print(len(DistanceSq))
+    if isInside:
+        UnifRnd = np.random.random((numRandMVU,))
+        UnifRnd = (UnifRnd**(1./ndim)) / np.sqrt(DistanceSq)
+
+    CholeskyLower = np.linalg.cholesky(np.mat(CovMat))
+    #print(CholeskyLower[1,0])
+    RandMVU = np.zeros(np.shape(RandStdMVN))
+    for iRandMVU in range(numRandMVU):
+        if isInside:
+            RandStdMVN[iRandMVU] *= UnifRnd[iRandMVU]
+        else:
+            RandStdMVN[iRandMVU] /= np.sqrt(DistanceSq[iRandMVU])
+        for i in range(ndim):
+            RandMVU[iRandMVU,i] = RandMVU[iRandMVU,i] + CholeskyLower[i,i] * RandStdMVN[iRandMVU,i]
+            for j in range(i+1,ndim):
+                RandMVU[iRandMVU,j] = RandMVU[iRandMVU,j] + CholeskyLower[j,i] * RandStdMVN[iRandMVU,i]
+        RandMVU[iRandMVU] += MeanVec
+    return RandMVU
+</code></pre>
+
+<p>The above code takes an input covariance matrix <code>CovMat</code> corresponding to an ellipsoid of interest centered at <code>MeanVec</code>, then outputs a set of <code>numRandMVU</code> points that lie on the boundary of this ellipsoid. If the optional argument <code>isInside</code> is set to <code>False</code>, then the output random points will be uniformly distributed inside the ellipsoid.</p>
+
+<p>Here is an illustration of the bounding ellipsoid of the points we are interested to classify in this problem,</p>
+
+<pre><code class="language-python">MeanVec, CovMat = getMinVolPartition(Point)
+RandMVU = getRandMVU( numRandMVU=10000
+                    , MeanVec=MeanVec
+                    , CovMat=CovMat
+                    , isInside = False
+                    )
+%matplotlib notebook
+import matplotlib.pyplot as plt
+
+fig = plt.figure( figsize=(4.5, 4) \
+                , dpi= 100 \
+                , facecolor='w' \
+                , edgecolor='w' \
+                ) # create figure object
+
+# plot the points
+plt.plot( Point[0,:] \
+        , Point[1,:] \
+        , 'r.' \
+        , markersize = 2 \
+        )
+
+# plot the center point
+plt.plot( MeanVec[0] \
+        , MeanVec[1] \
+        , 'b.' \
+        , markersize = 10 \
+        )
+
+# plot the bounding ellipsoid
+plt.scatter(RandMVU[:,0],RandMVU[:,1],1)
+
+ax.set_xlabel('X')
+ax.set_ylabel('Y')
+plt.show()
+</code></pre>
+
+<figure>
+    <img src="/DSP2019F/exam/2-problem/boundingEllipsoid.png" width="900" />
+</figure>
+<p><br /></p>
+
+<p>So far, we have been able to find an ellipsoid that encloses all of the points in our problem. But here is the second question: Does this single ellipsoid accurately describe the original ellipsoid(s) from which the points were drawn? and does it really represent the least-volume bounding ellipsoid for all of these points?</p>
+
+<p>One way to ensure that this ellipsoid is indeed the least-volume ellipsoid is to check and see if the points are uniformly distributed inside our single ellipsoid. But this turns out to be a very challenging task.</p>
+
+<p>An easier way to see if the single ellipsoid is a good fit to our points is to compute the area of the single ellipsoid, then move on to assume that our data came from <strong>two ellipsoids</strong> instead of a single ellipsoid. At this point, we can use the K-means clustering method to find the two clusters from which these points could have been drawn.</p>
+
+<p>Now, here is the critical step: We compute the sum of the areas enclosed by these two ellipsoids (which could overlap, but that is fine, <strong>we proceed as if they were not overlapping</strong>). Then we can compare this sum with the area of the original single ellipsoid in the above figure:</p>
+
+<ol>
+  <li>If the area of the single ellipsoid is smaller than the sum of the areas of the two child-ellipsoids, we assume that all of the points in our dataset came from the single ellipsoid, and stop further searches for potentially more clusters in our dataset.</li>
+  <li>However, if the area of the single ellipsoid is larger than the sum of the areas of the two child-ellipsoids, then we know that the two smaller ellipsoids are likely better fit to our dataset than a single ellipsoid. Therefore, our dataset was likely generated from two-ellipsoids.</li>
+</ol>
+
+<p>But what if there are more than two ellipsoids responsible for the generation of the points? One way to test this hypothesis is to repeat the above procedure for the two child-ellipsoids and see whether any one of them can be replaced with two sub-child-ellipsoids instead. This procedure can be then repeated for as many times as needed, until the algorithm stops, implying that all of the child-ellipsoids have been found, <strong>or</strong>, the number of points for a sub-clustering task becomes 3 or less than 3, in which case no more clustering is possible, because we need at least three points to form a 2D ellipsoid.</p>
+
+<p>Write an algorithm based on the above description and provided scripts that can classify all of the points in a given dataset into an automatically-determined number of ellipsoids, such that each point in the dataset is enclosed by at least one ellipsoid. The first graph above shows an example of a set of such ellipsoids illustrated by the green dots.</p>
+
+<p>Note that the ellipsoids found by your algorithm are not unique, meaning that different runs of the algorithm could potentially yield different sets of best-fit ellipsoids. However, we can hope that each set of such ellipsoids found by the algorithm is a good approximation to the original ellipsoids from which the points were drawn.</p>
 
 <p>Here is an animation of this algorithm at work, for a set of points with an evolving overall-shape over time,</p>
 
 <figure>
-    <img src="/DSP2019F/exam/2-problem/ellipses_forever.gif" width="900" />
+    <img src="/DSP2019F/exam/2-problem/ellipsoids_forever.gif" width="900" />
 </figure>
 <p><br /></p>
 
@@ -383,8 +576,8 @@ We can multiply the value of $\log\mathcal{L}(\mathcal{D}|\lambda,c,\sigma)$ by 
 
     <footer class="notepad-site-footer">
     <div class="copyright">
-         <!-- <section>Last updated 2019 / 12 / 03</section></br> -->
-         <section>Last updated Tuesday, 03 Dec 2019 at 06:20 PM CST</section></br>
+         <!-- <section>Last updated 2019 / 12 / 07</section></br> -->
+         <section>Last updated Saturday, 07 Dec 2019 at 02:20 PM CST</section></br>
          <section>All content exclusively maintained by <a href=https://www.shahmoradi.org target="_blank">Amir Shahmoradi</a> <!-- &copy;--> </section></br>
          <section><a class="icon-ghost" href="https://www.uta.edu/physics/" target="_blank">Department of Physics | Data Science Program</a></section></br>
          <section><a class="icon-ghost" href="https://www.uta.edu/" target="_blank">The University of Texas at Arlington</a></section></br>
