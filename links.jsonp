@@ -2,46 +2,6 @@
 callback([
 
   {
-    "text": "Quiz 3: Monte Carlo Integration",
-    "href": "/DSP2019F/quiz/3-monte-carlo"
-  } ,
-
-  {
-    "text": "Quiz 2: Python control constructs and program units",
-    "href": "/DSP2019F/quiz/2-control-constructs-and-program-units"
-  } ,
-
-  {
-    "text": "Quiz 1: Version control system, programming history",
-    "href": "/DSP2019F/quiz/1-version-control-system-programming-history"
-  } ,
-
-  {
-    "text": "Homework 4: Clustering techniques",
-    "href": "/DSP2019F/homework/4-clustering"
-  } ,
-
-  {
-    "text": "Homework 3: More on Python programming, Monte Carlo methods, and regression",
-    "href": "/DSP2019F/homework/3-more-on-python-programming-data-science"
-  } ,
-
-  {
-    "text": "Homework 2: Python programming",
-    "href": "/DSP2019F/homework/2-python-programming"
-  } ,
-
-  {
-    "text": "Homework 1: Version Control Using Git and Github",
-    "href": "/DSP2019F/homework/1-version-control-using-git-github"
-  } ,
-
-  {
-    "text": "Final exam: semester project",
-    "href": "/DSP2019F/exam/1-semester-project"
-  } ,
-
-  {
     "text": "Announcement 1: Assessing your programming knowledge and interests",
     "href": "/DSP2019F/announcement/1-assessing-your-knowledge-and-interests"
   } ,

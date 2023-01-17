@@ -48,38 +48,6 @@
 
     
     <url>
-        <loc>/DSP2019F/quiz/3-monte-carlo</loc>
-    </url>
-    
-    <url>
-        <loc>/DSP2019F/homework/4-clustering</loc>
-    </url>
-    
-    <url>
-        <loc>/DSP2019F/exam/1-semester-project</loc>
-    </url>
-    
-    <url>
-        <loc>/DSP2019F/homework/3-more-on-python-programming-data-science</loc>
-    </url>
-    
-    <url>
-        <loc>/DSP2019F/quiz/2-control-constructs-and-program-units</loc>
-    </url>
-    
-    <url>
-        <loc>/DSP2019F/homework/2-python-programming</loc>
-    </url>
-    
-    <url>
-        <loc>/DSP2019F/quiz/1-version-control-system-programming-history</loc>
-    </url>
-    
-    <url>
-        <loc>/DSP2019F/homework/1-version-control-using-git-github</loc>
-    </url>
-    
-    <url>
         <loc>/DSP2019F/announcement/1-assessing-your-knowledge-and-interests</loc>
     </url>
     
